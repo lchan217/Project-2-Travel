@@ -3,13 +3,8 @@ class UsersController < ApplicationController
       erb :'/users/create_user'
   end
   post '/signup' do
-    @name = params[:name]
-    @username = params[:username]
-    @email = params[:email]
-    @password = params[:password]
-
-    unless @name.empty? || @username.empty? || @email.empty? || @password.empty?
-      @user = User.create(params)
+    @user = User.new(params)
+    if @user.save 
       session[:user_id] = @user.id
       @locations = Location.all
       erb :'/locations/index'
@@ -31,7 +26,7 @@ class UsersController < ApplicationController
         erb :'/users/error'
      end
   end
-  post '/user/logout' do
+  post '/logout' do
     redirect '/logout'
   end
   get '/logout' do
