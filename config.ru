@@ -6,5 +6,6 @@ end
 
 use Rack::MethodOverride
 use LocationsController
+use GoalsController
 use UsersController
 run ApplicationController
