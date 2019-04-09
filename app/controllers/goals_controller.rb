@@ -31,6 +31,11 @@ class GoalsController < ApplicationController
     end
   end
   get '/goals/:id/delete' do
-    "Deleting page"
+    @goal = Goal.find(params[:id])
+   erb :'/goals/delete'
   end
+  delete '/goals/:id/delete' do
+    Goal.find(params[:id]).destroy
+    erb :'/goals/deleted'
+    end
 end
