@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       @locations = Location.all
-      erb :'/locations/index'
+      @goals = Goal.all
+      erb :'/joint_index'
     else
       erb :'users/error'
     end
@@ -21,16 +22,21 @@ class UsersController < ApplicationController
      if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
         @locations = Location.all
+        @goals = Goal.all
         erb :joint_index
      else
         erb :'/users/error'
      end
   end
-
-  get '/locations/index' do
+  get '/joint_index' do
+   if logged_in?
+     @locations = Location.all
+     @goals = Goal.all 
       @user = User.find(session[:user_id])
-      @locations = Location.all
-    erb :'/locations/index'
+      erb :joint_index
+    else
+      erb :'/users/error'
+    end
   end
 
   post '/logout' do
