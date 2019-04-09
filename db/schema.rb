@@ -14,11 +14,11 @@
 ActiveRecord::Schema.define(version: 20190409132553) do
 
   create_table "locations", force: :cascade do |t|
-    t.string   "city"
-    t.string   "country"
-    t.string   "tourist_attraction"
-    t.datetime "date_visited"
-    t.integer  "user_id"
+    t.string  "city"
+    t.string  "country"
+    t.string  "tourist_attraction"
+    t.string  "date_visited"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
