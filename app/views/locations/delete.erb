@@ -1,6 +1,4 @@
-<h1>"Location deleted!"</h1>
-What would you like to do next?
-
-View past locations
-Create a new location
-Logout
+<form method="post" action="/locations/<%=@location.id %>/delete">
+ <input type="hidden" name="_method" value="delete">
+ <input type="submit" value="Confirm Delete">
+</form>
