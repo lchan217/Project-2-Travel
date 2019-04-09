@@ -1,0 +1,9 @@
+<h3>Edits?</h3>
+<i>Please do not leave any field blank</i> <br> <br>
+<form action="/goals/<%= @goal.id %>" method="post">
+       <input type="hidden" name="_method" value="patch">
+       City: <input type="text" name="city" value = "<%= @goal.city%>" ><br>
+       Country: <input type="text" name="country" value= "<%= @goal.country %>" ><br>
+       What You Did: <input type="text" name="tourist_attraction" value= "<%= @goal.tourist_attraction %>" ><br>
+       <input type="submit" value="Confirm Edit">
+    </form>

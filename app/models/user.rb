@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :username, uniqueness: true
   has_many :locations
+  has_many :goals
 end
