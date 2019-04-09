@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
   post '/signup' do
     @user = User.new(params)
-    if @user.save 
+    if @user.save
       session[:user_id] = @user.id
       @locations = Location.all
       erb :'/locations/index'
@@ -30,11 +30,7 @@ class UsersController < ApplicationController
     redirect '/logout'
   end
   get '/logout' do
-    if logged_in?
-      session.clear
-      redirect '/login'
-    else
-      redirect '/login'
-    end
+    session.clear
+    redirect '/login'
   end
 end
