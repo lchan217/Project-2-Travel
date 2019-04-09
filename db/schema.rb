@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 20190409132553) do
     t.string   "city"
     t.string   "country"
     t.string   "tourist_attraction"
-    t.datetime "past_date"
-    t.datetime "future_date"
+    t.datetime "date_visited"
     t.integer  "user_id"
   end
 
