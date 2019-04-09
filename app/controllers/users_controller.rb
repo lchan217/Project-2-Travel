@@ -21,11 +21,18 @@ class UsersController < ApplicationController
      if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
         @locations = Location.all
-        erb :'/locations/index'
+        erb :joint_index
      else
         erb :'/users/error'
      end
   end
+
+  get '/locations/index' do
+      @user = User.find(session[:user_id])
+      @locations = Location.all
+    erb :'/locations/index'
+  end
+
   post '/logout' do
     redirect '/logout'
   end
