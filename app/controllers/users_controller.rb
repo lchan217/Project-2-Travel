@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   get '/joint_index' do
    if logged_in?
      @locations = Location.all
-     @goals = Goal.all 
+     @goals = Goal.all
       @user = User.find(session[:user_id])
       erb :joint_index
     else
@@ -44,6 +44,6 @@ class UsersController < ApplicationController
   end
   get '/logout' do
     session.clear
-    redirect '/login'
+    erb :index
   end
 end

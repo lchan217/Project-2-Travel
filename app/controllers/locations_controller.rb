@@ -1,11 +1,11 @@
 class LocationsController < ApplicationController
   get '/locations/new' do
-    @user = User.find(session[:user_id])
+    @user = current_user
     erb :'/locations/new'
   end
   post'/locations' do
     @location = Location.create(params)
-    @user = User.find(session[:user_id])
+    @user = current_user
     @user.locations << @location #is this needed??
     redirect "/locations/#{@location.id}"
   end

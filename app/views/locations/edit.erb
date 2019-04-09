@@ -1,5 +1,5 @@
 <h3>Edits?</h3>
-<i>Please do not leave any field blank</i> <br> <br>
+<i>Please do not leave any field blank. If you do not know yet, enter "TBD".</i> <br> <br>
 <form action="/locations/<%= @location.id %>" method="post">
        <input type="hidden" name="_method" value="patch">
        City: <input type="text" name="city" value = "<%= @location.city%>" ><br>
