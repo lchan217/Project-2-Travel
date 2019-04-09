@@ -1,1 +1,8 @@
-This is the location index page
+<h1>Welcome <%= @user.name %>! </h1>
+Here are locations that you have visited
+<% @locations.each do |location| %>
+  <br>City: <%= location.city %><br>
+  Country<%= location.country %><br>
+  What You Did: <%= location.tourist_attraction %><br>
+  Date Visited: <%= location.past_date %><br>
+<% end %>
