@@ -7,7 +7,10 @@ Date Visited: <%=@location.date_visited%>
 <br>
 <br>
 
-Edit or
+
+<p><a href="/locations/index">Back to home</a></p>
+Edit
+or delete
 
 <form method="post" action="/locations/<%=@location.id %>/delete">
  <input type="hidden" name="_method" value="delete">

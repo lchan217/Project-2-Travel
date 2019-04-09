@@ -1,5 +1,8 @@
 class LocationsController < ApplicationController
-  get '/index' do
+  get '/locations/index' do
+      @user = User.find(session[:user_id])
+      @locations = Location.all
+    erb :'/locations/index'
   end
   get '/locations/new' do
     erb :'/locations/new'

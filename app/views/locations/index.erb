@@ -3,9 +3,12 @@
 <h3>Click  <a href='/locations/new'>here</a> to add new location</h3>
 <h3>Here are locations that you have visited</h3>
 <% @locations.each do |location| %>
-  <br>City: <%= location.city %><br>
+  <p>City: <%= location.city %><br>
   Country<%= location.country %><br>
   What You Did: <%= location.tourist_attraction %><br>
-  Date Visited: <%= location.past_date %><br>
-  <a href="/locations/<%=@location.id%>">Click to Visit This Trip</a>
+  Date Visited: <%= location.date_visited %><br>
+  <a href="/locations/<%=location.id%>">Click to Visit This Trip</a></p>
 <% end %>
+
+
+<p>Add logout option </p>
