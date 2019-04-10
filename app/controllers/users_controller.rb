@@ -22,7 +22,13 @@ class UsersController < ApplicationController
      if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
         erb :joint_index
-     else
+      elsif
+        @user == nil
+        erb :'/users/nil_error'
+      elsif
+        !@user.authenticate(params[:password])
+        erb :'/users/pw_error'
+      else
         erb :'/users/error'
      end
   end
