@@ -1,7 +1,11 @@
 class CompletionsController < ApplicationController
   get '/completions/new' do
-    @user = current_user
-    erb :'/completions/new'
+    if logged_in?
+      @user = current_user
+      erb :'/completions/new'
+    else
+      redirect '/login'
+    end
   end
   post'/completions' do
     @city = params[:city]
@@ -18,12 +22,20 @@ class CompletionsController < ApplicationController
     end
   end
   get '/completions/:id' do
-    @completion = Completion.find(params[:id])
-    erb :'/completions/show'
+    if logged_in?
+      @completion = Completion.find(params[:id])
+      erb :'/completions/show'
+    else
+      redirect '/login'
+    end
   end
   get '/completions/:id/edit' do
-    @completion = Completion.find(params[:id])
-    erb :'/completions/edit'
+    if logged_in?
+      @completion = Completion.find(params[:id])
+      erb :'/completions/edit'
+    else
+      redirect '/login'
+    end
   end
   patch '/completions/:id' do
     @completion = Completion.find(params[:id])
@@ -40,12 +52,16 @@ class CompletionsController < ApplicationController
     end
   end
   get '/completions/:id/delete' do
-    @completion = Completion.find(params[:id])
-   erb :'/completions/delete'
+    if logged_in?
+      @completion = Completion.find(params[:id])
+      erb :'/completions/delete'
+    else
+      redirect '/login'
+    end
   end
   delete '/completions/:id/delete' do
-   Completion.find(params[:id]).destroy
-   erb :'/completions/deleted'
+     Completion.find(params[:id]).destroy
+     erb :'/completions/deleted'
   end
 
 end

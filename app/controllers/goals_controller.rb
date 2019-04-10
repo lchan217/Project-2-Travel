@@ -1,7 +1,11 @@
 class GoalsController < ApplicationController
   get '/goals/new' do
-    @user = current_user
-    erb :'/goals/new'
+    if logged_in?
+      @user = current_user
+      erb :'/goals/new'
+    else
+      redirect '/login'
+    end
   end
   post '/goals' do
     @city = params[:city]
@@ -17,12 +21,20 @@ class GoalsController < ApplicationController
     end
   end
   get '/goals/:id' do
-    @goal = Goal.find(params[:id])
-    erb :'/goals/show'
+    if logged_in?
+      @goal = Goal.find(params[:id])
+      erb :'/goals/show'
+    else
+      redirect '/login'
+    end
   end
   get '/goals/:id/edit' do
-    @goal = Goal.find(params[:id])
-    erb :'/goals/edit'
+    if logged_in?
+      @goal = Goal.find(params[:id])
+      erb :'/goals/edit'
+    else
+      redirect '/login'
+    end
   end
   patch '/goals/:id' do
     @goal = Goal.find(params[:id])
@@ -38,11 +50,15 @@ class GoalsController < ApplicationController
     end
   end
   get '/goals/:id/delete' do
-    @goal = Goal.find(params[:id])
-   erb :'/goals/delete'
+    if logged_in?
+      @goal = Goal.find(params[:id])
+      erb :'/goals/delete'
+    else
+      redirect '/login'
+    end
   end
   delete '/goals/:id/delete' do
     Goal.find(params[:id]).destroy
     erb :'/goals/deleted'
-    end
+  end
 end
