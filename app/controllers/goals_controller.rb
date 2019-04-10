@@ -4,10 +4,17 @@ class GoalsController < ApplicationController
     erb :'/goals/new'
   end
   post '/goals' do
-    @goal = Goal.create(params)
-    @user = current_user
-    @user.goals << @goal #is this needed??
-    redirect "/goals/#{@goal.id}"
+    @city = params[:city]
+    @country = params[:country]
+    @attraction = params[:tourist_attraction]
+    unless @country.empty? || @city.empty? || @attraction.empty?
+      @goal = Goal.create(params)
+      @user = current_user
+      @user.goals << @goal #needed or else @user.goals wont work
+      redirect "/goals/#{@goal.id}"
+    else
+      erb :'/goals/new'
+    end
   end
   get '/goals/:id' do
     @goal = Goal.find(params[:id])

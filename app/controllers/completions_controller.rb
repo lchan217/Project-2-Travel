@@ -4,10 +4,18 @@ class CompletionsController < ApplicationController
     erb :'/completions/new'
   end
   post'/completions' do
-    @completion = Completion.create(params)
-    @user = current_user
-    @user.completions << @completion #needed or else @user.completions wont work
-    redirect "/completions/#{@completion.id}"
+    @city = params[:city]
+    @country = params[:country]
+    @attraction = params[:tourist_attraction]
+    @date = params[:date_visited]
+    unless @country.empty? || @city.empty? || @attraction.empty? || @date.empty?
+      @completion = Completion.create(params)
+      @user = current_user
+      @user.completions << @completion #needed or else @user.completions wont work
+      redirect "/completions/#{@completion.id}"
+    else
+      erb :'/completions/new'
+    end
   end
   get '/completions/:id' do
     @completion = Completion.find(params[:id])
