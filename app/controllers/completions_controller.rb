@@ -6,7 +6,7 @@ class CompletionsController < ApplicationController
   post'/completions' do
     @completion = Completion.create(params)
     @user = current_user
-    @user.completions << @completion #is this needed??
+    @user.completions << @completion #needed or else @user.completions wont work
     redirect "/completions/#{@completion.id}"
   end
   get '/completions/:id' do
