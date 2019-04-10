@@ -5,9 +5,12 @@
     <h1>Uh oh! There seems to be an error. </h1>
       Please see the error(s) below and try again:
       <br>
+
       <% @user.errors.full_messages.each do |error| %>
-        <br>
-        <%=error%>
+          <ul>
+            <font color="red" size="2"><i>
+              <li><%=error%>
+            </ul></font></i>
       <% end %>
     <br>
     <br>
