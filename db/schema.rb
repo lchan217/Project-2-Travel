@@ -13,18 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20190409215349) do
 
-  create_table "goals", force: :cascade do |t|
-    t.string  "city"
-    t.string  "country"
-    t.string  "tourist_attraction"
-    t.integer "user_id"
-  end
-
-  create_table "locations", force: :cascade do |t|
+  create_table "completions", force: :cascade do |t|
     t.string  "city"
     t.string  "country"
     t.string  "tourist_attraction"
     t.string  "date_visited"
+    t.integer "user_id"
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string  "city"
+    t.string  "country"
+    t.string  "tourist_attraction"
     t.integer "user_id"
   end
 

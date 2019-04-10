@@ -1,0 +1,10 @@
+<h3>Edits?</h3>
+<i>Please do not leave any field blank. If you do not know yet, enter "TBD".</i> <br> <br>
+<form action="/completions/<%= @completion.id %>" method="post">
+       <input type="hidden" name="_method" value="patch">
+       City: <input type="text" name="city" value = "<%= @completion.city%>" ><br>
+       Country: <input type="text" name="country" value= "<%= @completion.country %>" ><br>
+       What You Did: <input type="text" name="tourist_attraction" value= "<%= @completion.tourist_attraction %>" ><br>
+       Date Visited: <input type="text" name="date_visited" value= "<%= @completion.date_visited %>" ><br>
+       <input type="submit" value="Confirm Edit">
+    </form>

@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :email, uniqueness: true
   validates :username, uniqueness: true
-  has_many :locations
+  has_many :completions
   has_many :goals
 end

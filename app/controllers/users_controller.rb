@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = User.new(params)
     if @user.save
       session[:user_id] = @user.id
-      @locations = Location.all
+      @completions = Completion.all
       @goals = Goal.all
       erb :'/joint_index'
     else
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
      @user = User.find_by(username: params[:username])
      if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        @locations = Location.all
+        @completions = Completion.all
         @goals = Goal.all
         erb :joint_index
      else
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
   get '/joint_index' do
    if logged_in?
-     @locations = Location.all
+     @completions = Completion.all
      @goals = Goal.all
       @user = User.find(session[:user_id])
       erb :joint_index

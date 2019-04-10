@@ -1,6 +1,6 @@
 <h1>Welcome <%= @user.name %>! </h1>
 
-<h3>Click  <a href='/locations/new'>here</a> to add a past trip</h3>
+<h3>Click  <a href='/completions/new'>here</a> to add a past trip</h3>
 <h3>Click  <a href='/goals/new'>here</a> to add to your bucket list</h3>
 
 <style>
@@ -17,16 +17,15 @@
  clear: both;
 }
 </style>
-
 <div class="row">
   <div class="column";">
     <h3>Here are countries that you have visited:</h3>
-      <% @locations.each do |location| %>
-        <p>City: <%= location.city %><br>
-        Country: <%= location.country %><br>
-        What You Did: <%= location.tourist_attraction %><br>
-        Date Visited: <%= location.date_visited %><br>
-        <a href="/locations/<%=location.id%>">Click to Visit This Trip</a></p>
+      <% @completions.each do |completion| %>
+        <p>City: <%= completion.city %><br>
+        Country: <%= completion.country %><br>
+        What You Did: <%= completion.tourist_attraction %><br>
+        Date Visited: <%= completion.date_visited %><br>
+        <a href="/completions/<%=completion.id%>">Click to Visit This Trip</a></p>
       <% end %>
   </div>
   <div class="column">

@@ -1,6 +1,6 @@
-class CreateLocations < ActiveRecord::Migration
+class CreateCompletions < ActiveRecord::Migration
   def change
-    create_table :locations do |t|
+    create_table :completions do |t|
       t.string :city
       t.string :country
       t.string :tourist_attraction
