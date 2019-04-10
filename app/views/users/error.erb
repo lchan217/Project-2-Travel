@@ -3,12 +3,13 @@
 <body>
 
     <h1>Uh oh! There seems to be an error. </h1>
-    Please make sure the following are correct and try again:
-      <ol type="square">
-        <li>Name, username, password, and email are all filled in to completion (no blanks)</li>
-        <li>Name, username, password, and email are correct</li>
-        <li>You have an account</li>
-      </ol>
+      Please see the error(s) below and try again:
+      <br>
+      <% @user.errors.full_messages.each do |error| %>
+        <br>
+        <%=error%>
+      <% end %>
+    <br>
     <br>
     <a href= "/signup">Sign Up</a>
     <a href= "/login">Log In</a>
