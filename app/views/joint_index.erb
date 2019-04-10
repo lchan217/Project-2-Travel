@@ -20,7 +20,7 @@
 <div class="row">
   <div class="column";">
     <h3>Here are countries that you have visited:</h3>
-      <% @completions.each do |completion| %>
+      <% @user.completions.each do |completion| %>
         <p>City: <%= completion.city %><br>
         Country: <%= completion.country %><br>
         What You Did: <%= completion.tourist_attraction %><br>
@@ -30,7 +30,7 @@
   </div>
   <div class="column">
     <h3>Here are the countries you want to visit: </h3>
-      <% @goals.each do |goal| %>
+      <% @user.goals.each do |goal| %>
         <p>City: <%= goal.city %><br>
         Country: <%= goal.country %><br>
         What You Want To Do: <%= goal.tourist_attraction %><br>

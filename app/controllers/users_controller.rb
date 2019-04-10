@@ -21,8 +21,6 @@ class UsersController < ApplicationController
      @user = User.find_by(username: params[:username])
      if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        @completions = Completion.all
-        @goals = Goal.all
         erb :joint_index
      else
         erb :'/users/error'
@@ -30,9 +28,7 @@ class UsersController < ApplicationController
   end
   get '/joint_index' do
    if logged_in?
-     @completions = Completion.all
-     @goals = Goal.all
-      @user = User.find(session[:user_id])
+     @user = User.find(session[:user_id])
       erb :joint_index
     else
       erb :'/users/error'
