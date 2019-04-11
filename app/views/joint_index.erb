@@ -1,44 +1,36 @@
-<h1>Welcome <%= @user.name %>! </h1>
+<div class="text-center">
+  <h1>Welcome <%= @user.name %>! </h1>
+</div>
 
-<h3>Click  <a href='/completions/new'>here</a> to add a past trip</h3>
-<h3>Click  <a href='/goals/new'>here</a> to add to your bucket list</h3>
+<a href="/completions/new" class="btn btn-info" role="button">Add a Past Trip</a>
+<a href="/goals/new" class="btn btn-info" role="button">Add a Future Trip</a>
+
+<a href="/logout" class="btn btn-info">
+  <span class="glyphicon glyphicon-log-out"></span> Log out
+</a>
 
 <style>
-{
- box-sizing: border-box;
-}
-.column {
- float: left;
- width: 50%;
-}
-.row:after {
- content: "";
- display: table;
- clear: both;
-}
 </style>
 <div class="row">
-  <div class="column";">
-    <h3>Here are countries that you have visited:</h3>
+  <div class="col">
+    <br>
+    <h2>Here are countries that you have visited:</h2>
       <% @user.completions.each do |completion| %>
         <p>City: <%= completion.city %><br>
         Country: <%= completion.country %><br>
         What You Did: <%= completion.tourist_attraction %><br>
         Date Visited: <%= completion.date_visited %><br>
-        <a href="/completions/<%=completion.id%>">Click to Visit This Trip</a></p>
+        <a href="/completions/<%=completion.id%>">More Details</a></p>
       <% end %>
   </div>
-  <div class="column">
-    <h3>Here are the countries you want to visit: </h3>
+  <div class="col">
+    <br>
+    <h2>Here are the countries you want to visit: </h2>
       <% @user.goals.each do |goal| %>
         <p>City: <%= goal.city %><br>
         Country: <%= goal.country %><br>
         What You Want To Do: <%= goal.tourist_attraction %><br>
-        <a href="/goals/<%=goal.id%>">Click to Visit This Trip</a></p>
+        <a href="/goals/<%=goal.id%>">More Details</a></p>
       <% end %>
   </div>
   </div>
-
-<form action='/logout' method="post">
-  <input type="submit" value="Log Out">
-</form>
