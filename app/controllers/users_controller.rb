@@ -5,8 +5,7 @@ class UsersController < ApplicationController
   post '/signup' do
     @user = User.new(params)
     if @user.save
-      session[:user_id] = @user.id
-      @completions = Completion.all
+      session[:user_id] = @user.id        @completions = Completion.all
       @goals = Goal.all
       erb :'/joint_index'
     else
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
   end
   post '/login' do
      @user = User.find_by(username: params[:username])
-     if @user && @user.authenticate(params[:password])
+     if @user && @user.authenticate(params[:password]) #if you can find a user AND authenticate then log them in
         session[:user_id] = @user.id
         erb :joint_index
       elsif

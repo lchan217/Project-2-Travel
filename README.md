@@ -10,7 +10,7 @@ This program allows users to track destinations that they have visited as well a
 
 ## Usage
 
-Please type "shotgun" into the terminal and visit http://127.0.0.1:9393/ in Google Chrome.
+Please type "rake db:migrate, then" "shotgun" into the terminal and visit http://127.0.0.1:9393/ in Google Chrome.
 
 ## Development
 ???
