@@ -9,12 +9,12 @@
       <% @user.errors.full_messages.each do |error| %>
           <ul>
             <font color="red" size="2"><i>
-              <li><%=error%>
+              <%=error%>
             </i></font></ul>
       <% end %>
     <br>
     <br>
-    <a href= "/signup">Sign Up</a>
-    <a href= "/login">Log In</a>
+    <a href="/signup" class="btn btn-secondary btn-sm">Sign Up</a>
+    <a href="/login" class="btn btn-secondary btn-sm">Log In</a>
 </body>
 </html>

@@ -6,7 +6,10 @@ What You Did: <%=@completion.tourist_attraction%><br>
 Date Visited: <%=@completion.date_visited%>
 <br>
 <br>
+<br>
 
-<p><a href="/joint_index">Back to home</a></p>
-<p><a href="/completions/<%=@completion.id%>/edit">Edit</a></p>
-<p><a href="/completions/<%=@completion.id%>/delete">Delete</a></p>
+<div class="btn-group-justified">
+    <a href="/joint_index" class="btn btn-primary ">Home</a>
+    <a href="/completions/<%=@completion.id%>/edit" class="btn btn-primary">Edit</a>
+    <a href="/completions/<%=@completion.id%>/delete" class="btn btn-primary">Delete</a>
+</div>
