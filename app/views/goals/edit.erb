@@ -1,5 +1,6 @@
+    <a style="float:right" href="/logout" class="btn btn-light btn-sm" >Log out</a>
 <h3>Edits?</h3>
-<i>Please do not leave any field blank. If you do not know yet, enter "TBD".</i> <br> <br>
+<i><font size="2"> Please do not leave any field blank. If you do not know yet, enter "TBD".</font></i> <br> <br>
 <form action="/goals/<%= @goal.id %>" method="post">
        <input type="hidden" name="_method" value="patch">
        City: <input type="text" name="city" value = "<%= @goal.city%>" ><br>

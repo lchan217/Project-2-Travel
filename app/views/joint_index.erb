@@ -1,4 +1,4 @@
-<a style="float:right" href="/logout" class="btn btn-light btn-sm" >Log out</a>
+    <a style="float:right" href="/logout" class="btn btn-light btn-sm" >Log out</a>
 <div class="text-center">
   <h1>Welcome <%= @user.name %>! </h1>
 </div>
@@ -22,7 +22,7 @@
   </div>
   <div class="col">
     <br>
-    <h2>Here are the countries you want to visit: </h2>
+    <h2>Here are countries you want to visit: </h2>
       <% @user.goals.each do |goal| %>
         <p>City: <%= goal.city %><br>
         Country: <%= goal.country %><br>

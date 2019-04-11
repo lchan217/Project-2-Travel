@@ -1,4 +1,4 @@
-
+    <a style="float:right" href="/logout" class="btn btn-light btn-sm" >Log out</a>
 <h1>Here are the Details of your Future Trip: </h1>
 
 City: <%=@goal.city%><br>
@@ -10,8 +10,9 @@ What You Want To Do: <%=@goal.tourist_attraction%><br>
 
 
 <div class="btn-group-justified">
-    <a href="/joint_index" class="btn btn-primary ">Home</a>
+    <a href="/goals/new" class="btn btn-primary">Add Another</a>
     <a href="/goals/<%=@goal.id%>/edit" class="btn btn-primary">Edit</a>
     <a href="/goals/<%=@goal.id%>/delete" class="btn btn-primary">Delete</a>
     <a href="/goals/<%=@goal.id%>/move" class="btn btn-primary">Move to Visited Trips</a>
+    <a href="/joint_index" class="btn btn-primary ">Home</a>
 </div>
