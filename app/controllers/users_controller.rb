@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   post '/signup' do
     @user = User.new(params)
     if @user.save
-      session[:user_id] = @user.id        @completions = Completion.all
+      session[:user_id] = @user.id
+      @completions = Completion.all
       @goals = Goal.all
       erb :'/joint_index'
     else

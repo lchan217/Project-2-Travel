@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20190409215349) do
     t.string  "city"
     t.string  "country"
     t.string  "tourist_attraction"
+    t.string  "date_visited"
     t.integer "user_id"
   end
 

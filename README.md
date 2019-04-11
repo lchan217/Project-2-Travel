@@ -5,15 +5,13 @@ This program allows users to track destinations that they have visited as well a
 
 ## Installation
 
-    $ gem install project1
+    $ gem install project2
     $ bundle install
 
 ## Usage
 
 Please type "rake db:migrate, then" "shotgun" into the terminal and visit http://127.0.0.1:9393/ in Google Chrome.
 
-## Development
-???
 
 ## Contributing
 
