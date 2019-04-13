@@ -5,13 +5,12 @@ This program allows users to track destinations that they have visited as well a
 
 ## Installation
 
-    $ gem install project2
+    $ fork and clone from https://github.com/lchan217/Project-2
     $ bundle install
 
 ## Usage
 
-Please type "rake db:migrate, then" "shotgun" into the terminal and visit http://127.0.0.1:9393/ in Google Chrome.
-
+Please type "rake db:migrate", then "shotgun" into the terminal and visit http://127.0.0.1:9393/ in a Google Chrome browser.
 
 ## Contributing
 
@@ -20,7 +19,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/lchan2
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the My Destination Tracker project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'bold-point-0530'/project1/blob/master/CODE_OF_CONDUCT.md).
