@@ -4,7 +4,7 @@ class CompletionsController < ApplicationController
       @user = current_user
       erb :'/completions/new'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
   post'/completions' do
@@ -26,7 +26,7 @@ class CompletionsController < ApplicationController
       @completion = Completion.find(params[:id])
       erb :'/completions/show'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
   get '/completions/:id/edit' do
@@ -34,7 +34,7 @@ class CompletionsController < ApplicationController
       @completion = Completion.find(params[:id])
       erb :'/completions/edit'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
   patch '/completions/:id' do
@@ -56,7 +56,7 @@ class CompletionsController < ApplicationController
       @completion = Completion.find(params[:id])
       erb :'/completions/delete'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
   delete '/completions/:id/delete' do

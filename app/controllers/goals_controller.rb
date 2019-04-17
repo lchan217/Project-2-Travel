@@ -6,7 +6,7 @@ class GoalsController < ApplicationController
       erb :'/goals/new'
     else
       @user = current_user
-      redirect '/login'
+      redirect '/'
     end
   end
   post '/goals' do
@@ -36,7 +36,7 @@ class GoalsController < ApplicationController
       @goal = Goal.find(params[:id])
       erb :'/goals/show'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
   get '/goals/:id/edit' do
@@ -44,7 +44,7 @@ class GoalsController < ApplicationController
       @goal = Goal.find(params[:id])
       erb :'/goals/edit'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
   patch '/goals/:id' do
@@ -65,7 +65,7 @@ class GoalsController < ApplicationController
       @goal = Goal.find(params[:id])
       erb :'/goals/delete'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
   delete '/goals/:id/delete' do
@@ -78,7 +78,7 @@ class GoalsController < ApplicationController
       @goal = Goal.find(params[:id])
       erb :'/goals/move'
     else
-      redirect '/login'
+      redirect '/'
     end
   end
   patch '/goals/:id/move' do
