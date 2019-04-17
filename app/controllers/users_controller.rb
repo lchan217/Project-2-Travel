@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   get '/signup' do
+    if logged_in?
+      @user = current_user
+      erb :joint_index
+    else
       erb :'/users/create_user'
+    end
   end
   post '/signup' do
     @user = User.new(params)
@@ -13,9 +18,13 @@ class UsersController < ApplicationController
       erb :'users/error'
     end
   end
-
   get '/login' do
+    if logged_in?
+      @user = current_user
+      erb :joint_index
+    else
       erb :'/users/login'
+    end
   end
   post '/login' do
      @user = User.find_by(username: params[:username])
@@ -37,7 +46,7 @@ class UsersController < ApplicationController
      @user = User.find(session[:user_id])
       erb :joint_index
     else
-      erb :'/users/error'
+      redirect '/login'
     end
   end
 

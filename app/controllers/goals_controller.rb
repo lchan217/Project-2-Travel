@@ -1,9 +1,11 @@
 class GoalsController < ApplicationController
   get '/goals/new' do
+    @user = current_user
     if logged_in?
       @user = current_user
       erb :'/goals/new'
     else
+      @user = current_user
       redirect '/login'
     end
   end
@@ -13,9 +15,17 @@ class GoalsController < ApplicationController
     @attraction = params[:tourist_attraction]
     params[:date_visited] = nil
     unless @country.empty? || @city.empty? || @attraction.empty?
-      @goal = Goal.create(params)
+      # @goal = Goal.create(params)
+      # @user = current_user
+      # @user.goals << @goal #needed or else @user.goals wont work
+      @goal = Goal.new(params)
       @user = current_user
-      @user.goals << @goal #needed or else @user.goals wont work
+      @goal.user_id = @user.id
+      # if @goal.save
+      #   redirect show
+      # else
+      #   create
+      # end
       redirect "/goals/#{@goal.id}"
     else
       erb :'/goals/new'
@@ -87,7 +97,7 @@ class GoalsController < ApplicationController
       params.delete("id")
       @new_completion = Completion.create(params)
       @user.completions << @new_completion
-      @goal.destroy 
+      @goal.destroy
       erb :'/joint_index'
     else
       redirect "/goals/#{@goal[:id]}/move"
