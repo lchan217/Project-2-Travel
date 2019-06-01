@@ -15,12 +15,12 @@ class GoalsController < ApplicationController
     @attraction = params[:tourist_attraction]
     params[:date_visited] = nil
     unless @country.empty? || @city.empty? || @attraction.empty?
-      # @goal = Goal.create(params)
-      # @user = current_user
-      # @user.goals << @goal #needed or else @user.goals wont work
-      @goal = Goal.new(params)
+      @goal = Goal.create(params)
       @user = current_user
-      @goal.user_id = @user.id
+      @user.goals << @goal #needed or else @user.goals wont work
+      # @goal = Goal.new(params)
+      # @user = current_user
+      # @goal.user_id = @user.id
       # if @goal.save
       #   redirect show
       # else
