@@ -10,7 +10,7 @@ This program allows users to track destinations that they have visited as well a
 
 ## Usage
 
-Please type "rake db:migrate", then "shotgun" into the terminal and visit http://127.0.0.1:9393/ in a Google Chrome browser.
+Visit https://destinations1000.herokuapp.com/ OR type "rake db:migrate", then "shotgun" into the terminal and visit http://127.0.0.1:9393/ in a Google Chrome browser.
 
 ## Contributing
 
