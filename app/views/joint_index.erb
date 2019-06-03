@@ -13,7 +13,7 @@
     <br>
     <h2>Here are countries that you visited:</h2>
       <% @user.completions.each do |completion| %>
-        Country: <%= completion.country %><br>
+        <p>Country: <%= completion.country %><br>
         What You Did: <%= completion.tourist_attraction %><br>
         Date Visited: <%= completion.date_visited %><br>
         <a href="/completions/<%=completion.id%>">More Details</a></p>
@@ -23,7 +23,7 @@
     <br>
     <h2>Here are countries you want to visit: </h2>
       <% @user.goals.each do |goal| %>
-        Country: <%= goal.country %><br>
+        <p>Country: <%= goal.country %><br>
         What You Want To Do: <%= goal.tourist_attraction %><br>
         <a href="/goals/<%=goal.id%>">More Details</a></p>
       <% end %>
