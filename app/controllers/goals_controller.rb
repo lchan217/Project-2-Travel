@@ -2,10 +2,8 @@ class GoalsController < ApplicationController
   get '/goals/new' do
     @user = current_user
     if logged_in?
-      @user = current_user
       erb :'/goals/new'
     else
-      @user = current_user
       redirect '/'
     end
   end
@@ -32,16 +30,16 @@ class GoalsController < ApplicationController
     end
   end
   get '/goals/:id' do
-    if logged_in?
-      @goal = Goal.find(params[:id])
+    @goal = Goal.find(params[:id])
+    if logged_in? && @goal.user_id == current_user.id
       erb :'/goals/show'
     else
       redirect '/'
     end
   end
   get '/goals/:id/edit' do
-    if logged_in?
-      @goal = Goal.find(params[:id])
+    @goal = Goal.find(params[:id])
+    if logged_in? && @goal.user_id == current_user.id
       erb :'/goals/edit'
     else
       redirect '/'
@@ -61,8 +59,8 @@ class GoalsController < ApplicationController
     end
   end
   get '/goals/:id/delete' do
-    if logged_in?
-      @goal = Goal.find(params[:id])
+    @goal = Goal.find(params[:id])
+    if logged_in? && @goal.user_id == current_user.id
       erb :'/goals/delete'
     else
       redirect '/'
@@ -73,9 +71,9 @@ class GoalsController < ApplicationController
     erb :'/goals/deleted'
   end
   get '/goals/:id/move' do
-    if logged_in?
-      @user = current_user
-      @goal = Goal.find(params[:id])
+    @user = current_user
+    @goal = Goal.find(params[:id])
+    if logged_in? && @goal.user_id == current_user.id
       erb :'/goals/move'
     else
       redirect '/'

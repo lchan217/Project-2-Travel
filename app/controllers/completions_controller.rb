@@ -22,16 +22,16 @@ class CompletionsController < ApplicationController
     end
   end
   get '/completions/:id' do
-    if logged_in?
-      @completion = Completion.find(params[:id])
+    @completion = Completion.find(params[:id])
+    if logged_in? && @completion.user_id == current_user.id
       erb :'/completions/show'
     else
       redirect '/'
     end
   end
   get '/completions/:id/edit' do
-    if logged_in?
-      @completion = Completion.find(params[:id])
+    @completion = Completion.find(params[:id])
+    if logged_in? && @completion.user_id == current_user.id
       erb :'/completions/edit'
     else
       redirect '/'
@@ -52,8 +52,8 @@ class CompletionsController < ApplicationController
     end
   end
   get '/completions/:id/delete' do
-    if logged_in?
-      @completion = Completion.find(params[:id])
+    @completion = Completion.find(params[:id])
+    if logged_in? && @completion.user_id == current_user.id
       erb :'/completions/delete'
     else
       redirect '/'
