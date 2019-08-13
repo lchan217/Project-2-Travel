@@ -8,6 +8,12 @@ This program allows users to track destinations that they have visited as well a
     $ fork and clone from https://github.com/lchan217/Project-2
     $ bundle install
 
+## Demo
+https://www.youtube.com/watch?v=A1OR5Khzv38
+
+## Technologies and Frameworks
+Sinatra, CSS, Bootstrap
+
 ## Usage
 
 Visit https://destinations1000.herokuapp.com/ OR type "rake db:migrate", then "shotgun" into the terminal and visit http://127.0.0.1:9393/ in a Google Chrome browser.
