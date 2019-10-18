@@ -16,14 +16,6 @@ class GoalsController < ApplicationController
       @goal = Goal.create(params)
       @user = current_user
       @user.goals << @goal #needed or else @user.goals wont work
-      # @goal = Goal.new(params)
-      # @user = current_user
-      # @goal.user_id = @user.id
-      # if @goal.save
-      #   redirect show
-      # else
-      #   create
-      # end
       redirect "/goals/#{@goal.id}"
     else
       erb :'/goals/new'
